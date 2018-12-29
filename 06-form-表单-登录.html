@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>iview example</title>
+    <!-- <link rel="stylesheet" type="text/css" href="http://unpkg.com/iview/dist/styles/iview.css">
+    <script type="text/javascript" src="http://vuejs.org/js/vue.min.js"></script>
+    <script type="text/javascript" src="http://unpkg.com/iview/dist/iview.min.js"></script> -->
+    
+    <link rel="stylesheet" type="text/css" href="dist/iview@3.2.1/iview.css">
+
+	<style>
+	  
+	</style>
+
+</head>
+<body>
+<div id="app" style="padding: 20px;">
+      <i-form ref="formInline" :model="formInline" :rules="ruleInline" inline>
+        <form-item prop="user">
+            <i-input type="text" v-model="formInline.user" placeholder="用户名">
+                <icon type="ios-person-outline" slot="prepend"></icon>
+            </i-input>
+        </form-item>
+        <form-item prop="password">
+            <i-input type="password" v-model="formInline.password" placeholder="密码">
+                <icon type="ios-lock-outline" slot="prepend"></icon>
+            </i-input>
+        </form-item>
+        <form-item>
+            <i-button type="primary" @click="handleSubmit('formInline')">登录</i-button>
+        </form-item>
+    </i-form>
+</div>
+</body>
+    <script type="text/javascript" src="dist/vue.min.js"></script>
+    <script type="text/javascript" src="dist/iview@3.2.1/iview.min.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                formInline: {
+                	user:'',
+                	password:'',
+                },
+                ruleInline: {
+                    user: [
+                        { required: true, message: '请填写用户名', trigger: 'blur' }
+                    ],
+                    password: [
+                        { required: true, message: '请填写密码', trigger: 'blur' },
+                        { type: 'string', min: 6, message: '密码不能少于6个字符', trigger: 'blur' }
+                    ]
+                }
+            },
+            methods: {
+                handleSubmit(name) {
+	                this.$refs[name].validate((valid) => {
+	                    if (valid) {
+	                        this.$Message.success('Success!');
+	                    } else {
+	                        this.$Message.error('Fail!');
+	                    }
+	                })
+	            }
+            }
+        })
+    </script>
+</html>

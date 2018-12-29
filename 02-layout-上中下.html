@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>iview example</title>
+    <!-- <link rel="stylesheet" type="text/css" href="http://unpkg.com/iview/dist/styles/iview.css">
+    <script type="text/javascript" src="http://vuejs.org/js/vue.min.js"></script>
+    <script type="text/javascript" src="http://unpkg.com/iview/dist/iview.min.js"></script> -->
+    
+    <link rel="stylesheet" type="text/css" href="dist/iview@3.2.1/iview.css">
+    <style type="text/css">
+    	.layout{		    
+		   /* background: #f5f7f9;
+		    position: relative;
+		    border-radius: 4px;
+		    overflow: hidden;*/
+
+		}
+		.layout-logo{
+		    width: 200px;
+		    height: 30px;
+		    float: left; /*令元素不影响同级元素布局，否则的话，右侧的元素会下来*/
+		    /*position: relative;  position 和 top 使其下移动了15px，可以使用marign-top:15px
+		    top: 15px;*/
+		    margin-top: 15px;
+
+			line-height: 30px; /*height 和 line-height 相同，保证文字垂直居中*/
+		    color: white;
+		}
+		.layout-nav{  /*元素居中，然后通过设置margin-right，使其靠右*/
+		    width: 420px;
+		    margin: 0 auto;
+		    margin-right: 20px;
+		}
+
+		.layout-footer-center{
+		    text-align: center;
+		}
+    </style>
+</head>
+<body>
+<div id="app">
+
+	<div class="layout">
+	    <Layout>
+	        <i-header>
+
+				<i-menu mode="horizontal" theme="dark" active-name="1">
+                    <div class="layout-logo">
+                    	XXX管理平台
+                    </div>
+                    <div class="layout-nav">                                        	
+                        <menu-item name="1">
+                            <Icon type="ios-navigate"></Icon>
+                            Item 1
+                        </menu-item>
+                        <menu-item name="2">
+                            <Icon type="ios-keypad"></Icon>
+                            Item 2
+                        </menu-item>
+                        <menu-item name="3">
+                            <Icon type="ios-analytics"></Icon>
+                            Item 3
+                        </menu-item>
+                        <menu-item name="4">
+                            <Icon type="ios-paper"></Icon>
+                            Item 4
+                        </menu-item>
+                    </div>
+                </i-menu>
+
+	        </i-header>
+	        <i-content :style="{padding: '0 50px'}">
+	        	
+	        	<breadcrumb :style="{margin: '20px 0'}">
+                    <breadcrumb-item>Home</breadcrumb-item>
+                    <breadcrumb-item>Components</breadcrumb-item>
+                    <breadcrumb-item>Layout</breadcrumb-item>
+                </breadcrumb>
+                <card>
+                    <div style="min-height: 200px;">
+                        Content
+                    </div>
+                </card>
+
+	        </i-content>
+
+	        <i-footer class="layout-footer-center">2011-2016 &copy; TalkingData</i-footer>
+	    </Layout>		
+	</div>
+
+
+	<hr />
+
+</div>
+</body>
+    <script type="text/javascript" src="dist/vue.min.js"></script>
+    <script type="text/javascript" src="dist/iview@3.2.1/iview.min.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                visible: false
+            },
+            methods: {
+                show: function () {
+                    this.visible = true;
+                }
+            }
+        })
+    </script>
+</html>
